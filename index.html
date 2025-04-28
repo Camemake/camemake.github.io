@@ -2,11 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Camemake on GitHub</title>
+  <title>Camemake GitHub Projects</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .repo { border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    .repo a { text-decoration: none; font-size: 20px; color: #0366d6; }
+    .repo p { margin: 5px 0; }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Camemake's GitHub Page</h1>
-  <p>This is a simple page embedded inside our website!</p>
-  <p><a href="https://github.com/Camemake" target="_blank">Visit our GitHub profile</a></p>
+
+<h1>Camemake GitHub Projects</h1>
+<div id="repos">Loading repositories...</div>
+
+<script>
+  fetch('https://api.github.com/users/Camemake/repos')
+    .then(response => response.json())
+    .then(repos => {
+      const container = document.getElementById('repos');
+      container.innerHTML = '';
+      repos.forEach(repo => {
+        const repoDiv = document.createElement('div');
+        repoDiv.className = 'repo';
+        repoDiv.innerHTML = `
+          <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+          <p>${repo.description || "No description"}</p>
+        `;
+        container.appendChild(repoDiv);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching repos:', error);
+      document.getElementById('repos').innerText = 'Failed to load repositories.';
+    });
+</script>
+
 </body>
 </html>
