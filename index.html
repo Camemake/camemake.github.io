@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Camemaker GitHub Projects with MIPI Example Drivers</title>
+  <title>Camemake GitHub projects and MIPI drivers</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,6 +67,24 @@
       color: #777;
       font-size: 14px;
     }
+    .pi5 {
+      max-width: 1200px;
+      margin: 0 auto 10px;
+      padding: 0 20px;
+      text-align: left;
+    }
+    .pi5 h2 {
+      text-align: center;
+      color: #222;
+    }
+    .pi5 > p {
+      text-align: center;
+      color: #444;
+    }
+    .pi5 a.shop {
+      color: #0b6b3a;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +97,55 @@
   <a href="https://github.com/Camemake" target="_blank">View Full GitHub Profile</a>
 </div>
 
+<section class="pi5">
+  <h2>Raspberry Pi 5 cameras</h2>
+  <p>These seven modules have a tested driver. Install from <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS">RPI5_MIPI_DRIVERS</a>, then open the picture in a browser. Each card links to the shop page and to that camera's folder.</p>
+  <div class="repo-grid">
+    <article class="repo-card">
+      <h3>SC450AI</h3>
+      <p>4MP, 2688×1520, 4-lane. Command: <code>bash install.sh sc450ai</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-sc450ai-rpi-sc450ai-4mp-ff-for-raspberry-pi-1096">Shop: SC450AI for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/sc450ai">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>OX05B1S</h3>
+      <p>5MP RGB-IR, 2592×1944, 4-lane. The preview looks magenta. Command: <code>bash install.sh ox05b1s</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-ox05b1s-rpi-ox05b1s-5mp-ff-for-raspberry-pi-1088">Shop: OX05B1S for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/ox05b1s">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>GC4023</h3>
+      <p>2.5MP, 2560×1440, 2-lane. Command: <code>bash install.sh gc4023</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-gc4023-rpi-gc4023-2-5mp-ff-for-raspberry-pi-1095">Shop: GC4023 for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/gc4023">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>HM2170</h3>
+      <p>2MP, 1928×1088, 2-lane. Command: <code>bash install.sh hm2170</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-hm2170-rpi-hm2170-2mp-ff-for-raspberry-pi-1082">Shop: HM2170 for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/hm2170">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>SC233HGS</h3>
+      <p>2MP global shutter, 1920×1200, 4-lane. Command: <code>bash install.sh sc233hgs</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-sc233hgs-rpi-sc233hgs-2mp-ff-for-raspberry-pi-1092">Shop: SC233HGS for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/sc233hgs">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>IMX675</h3>
+      <p>5MP, 2608×1960, 2-lane. Command: <code>bash install.sh imx675</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-imx675-rpi-imx675-5mp-ff-for-raspberry-pi-1105">Shop: IMX675 for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/imx675">Driver</a></p>
+    </article>
+    <article class="repo-card">
+      <h3>IMX586</h3>
+      <p>48MP sensor in the tested 4000×3000 mode, 4-lane. Command: <code>bash install.sh imx586</code></p>
+      <p><a class="shop" href="https://www.camemake.eu/shop/cm-mipi-imx586-rpi-imx586-48mp-ff-for-raspberry-pi-1104">Shop: IMX586 for Raspberry Pi</a><br>
+      <a href="https://github.com/Camemake/RPI5_MIPI_DRIVERS/tree/main/cameras/imx586">Driver</a></p>
+    </article>
+  </div>
+</section>
+
 <div class="repo-grid" id="repos">
   Loading repositories...
 </div>
@@ -88,7 +155,7 @@
 </footer>
 
 <script>
-fetch('https://api.github.com/users/Camemake/repos')
+fetch('https://api.github.com/users/Camemake/repos?per_page=100&sort=updated')
   .then(response => response.json())
   .then(repos => {
     const container = document.getElementById('repos');
